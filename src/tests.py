@@ -124,6 +124,9 @@ class Test(unittest.TestCase):
         A = Matrix([[1,2,3],[2,4,5],[6,7,8]],3,3)
         B = Matrix([[1,2,7],[2,4,5],[6,7,10]],3,3)
         self.assertEqual("|0,0,-4|\n|0,0,0|\n|0,0,-2|\n",(A-B).__str__())
+    def test_squareZeroMatrix(self):
+        self.assertEqual('|0,0,0,0,0|\n|0,0,0,0,0|\n|0,0,0,0,0|\n|0,0,0,0,0|' 
+        +'\n|0,0,0,0,0|\n',squareZeroMatrix(5).__str__())
         
 
 if __name__ == "__main__":

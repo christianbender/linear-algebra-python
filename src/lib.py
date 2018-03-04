@@ -15,6 +15,7 @@ Overview:
 - function unitBasisVector(dimension,pos)
 - function axpy(scalar,vector1,vector2)
 - class Matrix
+- squareZeroMatrix(N)
 """
 
 
@@ -315,4 +316,17 @@ class Matrix(object):
         else:
             raise Exception("matrix must have the same dimension!")
     
+
+def squareZeroMatrix(N):
+    """
+        returns a square zero-matrix of dimension NxN
+    """
+    ans = []
+    for i in range(N):
+        row = []
+        for j in range(N):
+            row.append(0)
+        ans.append(row)
+    return Matrix(ans,N,N)
+            
         
