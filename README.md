@@ -43,6 +43,8 @@ This module contains some useful classes and functions for dealing with linear a
     - height() : returns the height of the matrix  
     - operator + : implements the matrix-addition.  
     - operator - _ implements the matrix-subtraction  
+- function squareZeroMatrix(N)  
+    - returns a square zero-matrix of dimension NxN  
 ---
 
 ## Documentation  
