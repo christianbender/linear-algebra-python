@@ -65,4 +65,4 @@ import this module in your project. Alternative you can also use the file ```lib
 ## Tests  
 
 In the **src** directory you also find the test-suite, its called ```tests.py```.  
-The test-suite uses the in-built python-test-framework **unittest**.  
+The test-suite uses the built-in python-test-framework **unittest**.  
