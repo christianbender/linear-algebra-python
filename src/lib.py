@@ -14,6 +14,7 @@ Overview:
 - function zeroVector(dimension)
 - function unitBasisVector(dimension,pos)
 - function axpy(scalar,vector1,vector2)
+- class Matrix
 """
 
 

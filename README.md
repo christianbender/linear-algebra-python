@@ -22,7 +22,7 @@ This module contains some useful classes and functions for dealing with linear a
     - operator * : scalar multiplication and dot product  
     - copy() : copies this vector and returns it.  
     - changeComponent(pos,value) : changes the specified component.  
-    
+
 - function zeroVector(dimension)  
     - returns a zero vector of 'dimension'  
 - function unitBasisVector(dimension,pos)  
