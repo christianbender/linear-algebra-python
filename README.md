@@ -48,10 +48,13 @@ This module contains some useful classes and functions for dealing with linear a
     - operator + : implements the matrix-addition.  
     - operator - : implements the matrix-subtraction  
     - operator == : returns true if the matrices are equal otherwise false.  
+    - operator * : computes the scalar-product, the matrix-vector product and the matrix-matrix multiplication.   
 - function squareZeroMatrix(N)  
     - returns a square zero-matrix of dimension NxN  
 - function randomMatrix(W,H,a,b)  
     - returns a random matrix WxH with integer components between 'a' and 'b'  
+- function zeroMatrix(rows, cols)  
+    - returns a zero matrix of size rows x cols.  
 ---
 
 ## Documentation  

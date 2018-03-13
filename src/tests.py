@@ -142,6 +142,18 @@ class Test(unittest.TestCase):
         B = Matrix([[1,2,7],[2,4,5],[6,7,10]],3,3)
         self.assertTrue(A == A)
         self.assertFalse(A == B)
+    def test__mul__matrix(self):
+        A = Matrix([[1,2,3],[4,5,6],[7,8,9]],3,3)
+        x = Vector([1,2,-5])
+        result = Vector([-10,-16,-22])
+        self.assertTrue((A*x) == result)
+        # result matrix R
+        R = Matrix([[3,6,9],[12,15,18],[21,24,27]],3,3)
+        self.assertTrue((A*3) == R)
+        B = Matrix([[3,2,1],[1,0,2]],3,2)
+        C = Matrix([[1,2],[0,1],[4,0]],2,3)
+        D = Matrix([[7,8],[9,2]],2,2)
+        self.assertTrue((B*C) == D)
         
         
 if __name__ == "__main__":

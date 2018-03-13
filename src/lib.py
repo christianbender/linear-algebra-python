@@ -18,6 +18,7 @@ Overview:
 - class Matrix
 - function squareZeroMatrix(N)
 - function randomMatrix(W,H,a,b)
+- function zeroMatrix(rows, cols)
 """
 
 
@@ -251,7 +252,9 @@ class Matrix(object):
            width() : returns the width of the matrix
            height() : returns the height of the matrix
            operator + : implements the matrix-addition.
-           operator - _ implements the matrix-subtraction
+           operator - : implements the matrix-subtraction
+           operator * : computes the scalar-product, the
+                       matrix-vector product and the matrix-matrix multiplication
     """
     def __init__(self,matrix,w,h):
         """
@@ -369,6 +372,49 @@ class Matrix(object):
         else:
             ans = False
         return ans
+    def __mul__(self,other):
+        """
+            computes the scalar product, the 
+            vector-matrix multiplication and the matrix-matrix multiplication
+        """
+        if (isinstance(other,Vector)): # matrix-vector multiplication
+            if (self.__width == other.size()):
+                SIZE = other.size()
+                ans = zeroVector(SIZE)
+                summe = 0
+                for i in range(self.__height):
+                    for j in range(self.__width):
+                        summe += self.__matrix[i][j] * other.component(j)
+                    ans.changeComponent(i,summe)
+                    summe = 0
+                return ans
+            else: # error case
+                raise Exception("* : sizes of matrix and vector must be fit")
+        elif (isinstance(other,int) or isinstance(other,float)): # scalar mul
+            matrix = []
+            row = []
+            for i in range(self.__height):
+                for j in range(self.__width):
+                    row.append(self.__matrix[i][j] * other)
+                matrix.append(row)
+                row = []
+            return Matrix(matrix,self.__width,self.__height)
+        elif isinstance(other,Matrix): # matrix-matrix multiplication
+            if self.__width == other.height():
+                result = zeroMatrix(other.width(),self.__height)
+                summe = 0
+                for i in range(self.__height):
+                    for k in range(other.width()):
+                        for j in range(self.__width):
+                            summe += self.__matrix[i][j] * other.component(j,k)
+                        result.changeComponent(i,k,summe)
+                        summe = 0
+                return result
+                        
+            else: # error case
+                raise Exception("* : sizes of the matrices must be fit")
+                
+                    
         
     
 
@@ -383,6 +429,19 @@ def squareZeroMatrix(N):
             row.append(0)
         ans.append(row)
     return Matrix(ans,N,N)
+    
+
+def zeroMatrix(rows,cols):
+    """
+        returns a zero-matrix of dimension rows x cols
+    """
+    ans = []
+    for i in range(rows):
+        row = []
+        for j in range(cols):
+            row.append(0)
+        ans.append(row)
+    return Matrix(ans,rows,cols)
     
     
 def randomMatrix(W,H,a,b):
